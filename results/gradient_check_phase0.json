@@ -1,0 +1,50 @@
+{
+  "phase": 0,
+  "description": "Independent gradient check on the pre-Phase-1 code. Initialization is still coupled to batch norm inside initialize_parameters.",
+  "torch": "2.14.1+cpu",
+  "torchvision": "0.29.1+cpu",
+  "python": "3.13.2 (tags/v3.13.2:4f8bb39, Feb  4 2025, 15:23:48) [MSC v.1942 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "cuda_available": false,
+  "device": "cpu",
+  "seed": 0,
+  "fixture": {
+    "examples": 6,
+    "layer_dims": [
+      5,
+      4,
+      3
+    ]
+  },
+  "tolerances": {
+    "max_abs_autograd": 1e-05,
+    "max_abs_numeric": 0.0002,
+    "rationale": "Autograd gaps on this float32 fixture are about 1e-7. 1e-5 is above float32 noise and below a real gradient bug. Finite differences use step 1e-4; the published bound is 2e-4. Batch-norm cases have no finite-difference check."
+  },
+  "cases": [
+    {
+      "use_bnorm": false,
+      "lambd": 0.0,
+      "max_abs_autograd": 2.7939677238464355e-08,
+      "max_abs_numeric": 0.0
+    },
+    {
+      "use_bnorm": false,
+      "lambd": 0.1,
+      "max_abs_autograd": 2.7939677238464355e-08,
+      "max_abs_numeric": 0.00017652101814746857
+    },
+    {
+      "use_bnorm": true,
+      "lambd": 0.0,
+      "max_abs_autograd": 1.1920928955078125e-07,
+      "max_abs_numeric": null
+    },
+    {
+      "use_bnorm": true,
+      "lambd": 0.05,
+      "max_abs_autograd": 1.1920928955078125e-07,
+      "max_abs_numeric": null
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+# Test runner for `python -m pytest`. Not used by the MNIST training runs.
+pytest==9.1.1

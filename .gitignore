@@ -1,0 +1,15 @@
+# Local MNIST files downloaded by torchvision when experiments.ipynb is run.
+data/
+
+# Environments, caches, checkpoints
+.venv/
+venv/
+.env
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.pt
+*.pth
+checkpoints/
+artifacts/
+.pytest_cache/

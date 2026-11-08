@@ -1,0 +1,77 @@
+{
+  "phase": 1,
+  "description": "Gradient check after initialization was decoupled from batch norm. legacy_fan_in and he are both explicit. Finite-difference step is 1e-4.",
+  "torch": "2.14.1+cpu",
+  "torchvision": "0.29.1+cpu",
+  "python": "3.13.2 (tags/v3.13.2:4f8bb39, Feb  4 2025, 15:23:48) [MSC v.1942 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "cuda_available": false,
+  "device": "cpu",
+  "seed": 0,
+  "fixture": {
+    "examples": 6,
+    "layer_dims": [
+      5,
+      4,
+      3
+    ]
+  },
+  "cases": [
+    {
+      "use_bnorm": false,
+      "lambd": 0.0,
+      "initialization": "legacy_fan_in",
+      "max_abs_autograd": 2.7939677238464355e-08,
+      "max_abs_numeric": 0.0
+    },
+    {
+      "use_bnorm": false,
+      "lambd": 0.1,
+      "initialization": "legacy_fan_in",
+      "max_abs_autograd": 2.7939677238464355e-08,
+      "max_abs_numeric": 0.00017652101814746857
+    },
+    {
+      "use_bnorm": true,
+      "lambd": 0.0,
+      "initialization": "legacy_fan_in",
+      "max_abs_autograd": 8.195638656616211e-08,
+      "max_abs_numeric": null
+    },
+    {
+      "use_bnorm": true,
+      "lambd": 0.05,
+      "initialization": "legacy_fan_in",
+      "max_abs_autograd": 8.195638656616211e-08,
+      "max_abs_numeric": null
+    },
+    {
+      "use_bnorm": false,
+      "lambd": 0.0,
+      "initialization": "he",
+      "max_abs_autograd": 5.960464477539063e-08,
+      "max_abs_numeric": 0.0
+    },
+    {
+      "use_bnorm": false,
+      "lambd": 0.1,
+      "initialization": "he",
+      "max_abs_autograd": 5.960464477539063e-08,
+      "max_abs_numeric": 0.00021656975150108337
+    },
+    {
+      "use_bnorm": true,
+      "lambd": 0.0,
+      "initialization": "he",
+      "max_abs_autograd": 1.1920928955078125e-07,
+      "max_abs_numeric": null
+    },
+    {
+      "use_bnorm": true,
+      "lambd": 0.05,
+      "initialization": "he",
+      "max_abs_autograd": 1.1920928955078125e-07,
+      "max_abs_numeric": null
+    }
+  ]
+}

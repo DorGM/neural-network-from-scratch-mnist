@@ -1,0 +1,9 @@
+{
+  "official_mnist": false,
+  "label": "synthetic smoke test",
+  "initialization": "he",
+  "use_bnorm": true,
+  "epochs_ran": 3,
+  "best_epoch": 0,
+  "finite_val_cost": true
+}
